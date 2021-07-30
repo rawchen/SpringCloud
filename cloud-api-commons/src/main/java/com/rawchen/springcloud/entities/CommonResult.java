@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CommonResult<T> {
-	//404 not_found
+
 	private Integer code;
 	private String message;
 	private T data;
