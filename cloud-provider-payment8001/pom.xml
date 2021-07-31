@@ -17,6 +17,10 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
 		<!-- 引入自定义api通用包，可以使用Payment实体 -->
 		<dependency>
 			<groupId>com.rawchen.springcloud</groupId>
