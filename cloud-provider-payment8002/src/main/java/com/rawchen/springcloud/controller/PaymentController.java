@@ -19,7 +19,6 @@ public class PaymentController {
 	@Value("${server.port}")
 	private String serverPort;
 
-
 	@PostMapping(value = "/payment/create")
 	public CommonResult create(@RequestBody Payment payment) {
 		int result = paymentService.create(payment);
@@ -36,6 +35,7 @@ public class PaymentController {
 	public CommonResult getPaymentById(@PathVariable("id") Long id) {
 
 		Payment payment = paymentService.getPaymentById(id);
+		log.info("查询结果：" + payment);
 
 		if (payment != null) {
 			return new CommonResult(200, "查询成功,serverPort: " + serverPort, payment);
