@@ -24,7 +24,7 @@ public class PaymentService {
 	}
 
 	/**
-	 * 正常访问的OK方法
+	 * 超时方法
 	 *
 	 * @param id
 	 * @return
