@@ -1,7 +1,7 @@
 package com.rawchen.springcloud.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.rawchen.springcloud.service.PaymentHystrixService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +17,7 @@ import javax.websocket.server.PathParam;
  */
 @RestController
 @Slf4j
+@DefaultProperties(defaultFallback = "paymentGlobalFallbackMethod")
 public class OrderHystrixController {
 
 	@Resource
@@ -28,9 +29,10 @@ public class OrderHystrixController {
 		return result;
 	}
 
-	@HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod",commandProperties = {
-			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
-	})
+//	@HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod",commandProperties = {
+//			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
+//	})
+	@HystrixCommand
 	@GetMapping(value = "/consumer/payment/hystrix/timeout/{id}")
 	public String paymentInfo_TimeOut(@PathParam("id") Integer id) {
 		int age = 10/0;
@@ -44,6 +46,6 @@ public class OrderHystrixController {
 
 	//全局Fallback方法
 	public String paymentGlobalFallbackMethod() {
-		return "Glob"
+		return "全局异常处理信息，稍后重试。";
 	}
 }
