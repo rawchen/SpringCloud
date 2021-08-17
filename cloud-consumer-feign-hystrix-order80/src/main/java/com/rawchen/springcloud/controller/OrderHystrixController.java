@@ -41,4 +41,9 @@ public class OrderHystrixController {
 	public String paymentTimeOutFallbackMethod(Integer id) {
 		return "线程池: " + Thread.currentThread().getName() + "8001支付系统繁忙或自己运行出错，id: " + id + "\t T 降级方案";
 	}
+
+	//全局Fallback方法
+	public String paymentGlobalFallbackMethod() {
+		return "Glob"
+	}
 }
