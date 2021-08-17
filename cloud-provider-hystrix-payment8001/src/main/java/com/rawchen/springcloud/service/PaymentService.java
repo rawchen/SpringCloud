@@ -34,6 +34,7 @@ public class PaymentService {
 	})
 	public String paymentInfo_TimeOut(Integer id) {
 		int timeNumber = 5;
+//		int age = 10/0;
 		try {
 			TimeUnit.SECONDS.sleep(timeNumber);
 		} catch (InterruptedException e) {
@@ -43,6 +44,6 @@ public class PaymentService {
 	}
 
 	public String paymentInfo_TimeOutHandler(Integer id) {
-		return "线程池: " + Thread.currentThread().getName() + "paymentInfo_TimeOutHandler: " + id + "\t T 兜底方案";
+		return "线程池: " + Thread.currentThread().getName() + "系统繁忙或运行报错，id: " + id + "\t T 降级方案";
 	}
 }
