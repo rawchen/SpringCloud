@@ -12,7 +12,7 @@ import javax.websocket.server.PathParam;
  * @date 2021/8/15 23:28
  */
 @Component
-@FeignClient(value = "CLOUD-PROVIDER-HYSTRIX-PAYMENT")
+@FeignClient(value = "CLOUD-PROVIDER-HYSTRIX-PAYMENT", fallback = PaymentFallbackService.class)
 public interface PaymentHystrixService {
 
 	@GetMapping(value = "/payment/hystrix/ok/{id}")
