@@ -5,8 +5,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.websocket.server.PathParam;
-
 /**
  * @author RawChen
  * @date 2021/8/15 23:28
@@ -19,5 +17,5 @@ public interface PaymentHystrixService {
 	public String paymentInfo_OK(@PathVariable("id") Integer id);
 
 	@GetMapping(value = "/payment/hystrix/timeout/{id}")
-	public String paymentInfo_TimeOut(@PathParam("id") Integer id);
+	public String paymentInfo_TimeOut(@PathVariable("id") Integer id);
 }

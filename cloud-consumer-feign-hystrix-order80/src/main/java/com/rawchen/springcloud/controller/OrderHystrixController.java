@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.websocket.server.PathParam;
 
 /**
  * @author RawChen
@@ -34,7 +33,7 @@ public class OrderHystrixController {
 //	})
 	@HystrixCommand
 	@GetMapping(value = "/consumer/payment/hystrix/timeout/{id}")
-	public String paymentInfo_TimeOut(@PathParam("id") Integer id) {
+	public String paymentInfo_TimeOut(@PathVariable("id") Integer id) {
 		int age = 10/0;
 		String result = paymentHystrixService.paymentInfo_TimeOut(id);
 		return result;
