@@ -29,6 +29,8 @@ spring:
 #            - Host=**.rawchen.com
 #            - Method=GET
 #            - Query=username, \d+ #要有参数名username并且值还要是整数才能路由
+          filters:
+            - AddRequestParameter=X-Request-Id, 1024 #过滤器工厂会在匹配的请求头加上一对该请求头
 
 eureka:
   instance:
