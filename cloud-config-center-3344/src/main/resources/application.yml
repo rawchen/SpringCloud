@@ -8,13 +8,14 @@ spring:
     config:
       server:
         git:
-#          uri: git@github.com:rawchen/springcloud-config.git #远端仓库名
-          uri: https://github.com/rawchen/springcloud-config.git #远端仓库名
+          #ssh-keygen -m PEM -t rsa -b 4096 -C "xxxxxx@qq.com" 使用此命令生成git密钥对
+          uri: git@github.com:rawchen/springcloud-config.git #远端仓库名
+#          uri: https://github.com/rawchen/springcloud-config.git #远端仓库名
           #搜索目录
           search-paths:
             - springcloud-config
-          username: rawchen
-          password: xxx
+#          username: rawchen
+#          password: xxx
       #读取分支
       label: main
 #服务注册到eureka地址
