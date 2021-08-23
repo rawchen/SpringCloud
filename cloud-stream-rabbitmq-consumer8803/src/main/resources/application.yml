@@ -1,5 +1,5 @@
 server:
-  port: 8802
+  port: 8803
 spring:
   application:
     name: cloud-stream-consumer
@@ -28,5 +28,5 @@ eureka:
   instance:
     lease-expiration-duration-in-seconds: 5 #如果现在超过了5秒的间隔(默认90s)
     lease-renewal-interval-in-seconds: 2 #设置心跳的时间间隔(默认30s)
-    instance-id: receive-8802.com
+    instance-id: receive-8803.com
     prefer-ip-address: true #访问的路径变为IP地址
